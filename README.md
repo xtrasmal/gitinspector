@@ -1,3 +1,4 @@
+```copyright
 Copyright © 2012-2014 Ejwa Software. All rights reserved.
 
 This program comes with ABSOLUTELY NO WARRANTY.
@@ -13,7 +14,7 @@ script. Use the -h or --help flags to get help about available options.
 It is also possible to set gitinspector options using the "git config"
 command. Refer to the project page at http://gitinspector.googlecode.com
 for more information.
-
+```
 
 ---- docs copied ----
 
