@@ -7,13 +7,6 @@ certain conditions; see the accompanying LICENSE.txt file for further details.
 
 For questions regarding gitinspector you can contact the current maintainer
 in charge at gitinspector@ejwa.se.
-
-To run gitinspector; please start it via the gitinspector/gitinspector.py
-script. Use the -h or --help flags to get help about available options.
-
-It is also possible to set gitinspector options using the "git config"
-command. Refer to the project page at http://gitinspector.googlecode.com
-for more information.
 ```
 
 ---- docs copied ----
@@ -21,7 +14,15 @@ for more information.
 
 [Source](https://code.google.com/p/gitinspector/wiki/Documentation "Permalink to Documentation - gitinspector - Documentation covering gitinspector, it's options and how to use them. - The statistical analysis tool for git repositories.")
 
-# Documentation - gitinspector - Documentation covering gitinspector, it's options and how to use them. - The statistical analysis tool for git repositories.
+# Gitinspector - <br/>The statistical analysis tool for git repositories.
+
+
+To run gitinspector; please start it via the gitinspector/gitinspector.py
+script. Use the -h or --help flags to get help about available options.
+
+It is also possible to set gitinspector options using the "git config"
+command. Refer to the project page at http://gitinspector.googlecode.com
+for more information.
 
 * Git executable defined somewhere in your PATH, otherwise gitinspector will not be able to run git.
 * Python 2.6+.
@@ -30,12 +31,16 @@ The program can be executed using two different methods.
 
 1. By _changing directory_ to a GIT repository and running the command
 
-        gitinspector.py [OPTION]...
+```bash
+gitinspector.py [OPTION]...
+```
 
 .
 2. By running the command
 
-        gitinspector.py [OPTION]... [GIT REPOSITORY]
+```bash
+gitinspector.py [OPTION]... [GIT REPOSITORY]
+```
 
 The gitinspector script itself accepts a number of options that modifies it's behaviour and how statistics are generated. It is possible to get a brief explanation of all available options by supplying **-h** or **\--help** when running the program. Boolean arguments can only be given to long options.
 
@@ -90,26 +95,38 @@ XML suitable for machine consumption. If you want to parse the output generated 
 
 gitinspector offers several different ways of filtering out unwanted information from the generated statistics. As of version 0.3.2, the following filtering is supported:
 
-```gitinspector -x myfile # filter out and exclude statistics from all files (or paths) with the string "myfile"```
+```bash
+gitinspector -x myfile # filter out and exclude statistics from all files (or paths) with the string "myfile"
+```
 
 
-```gitinspector -x file:myfile # filter out and exclude statistics from all files (or paths) with the string "myfile"```
+```bash
+gitinspector -x file:myfile # filter out and exclude statistics from all files (or paths) with the string "myfile"
+```
 
 
-```gitinspector -x author:John # filter out and exclude statistics from all authors containing the string "John"```
+```bash
+gitinspector -x author:John # filter out and exclude statistics from all authors containing the string "John"
+```
 
 
-```gitinspector -x email:@gmail.com # filter out and exclude statistics from all authors with a gmail account```
+```bash
+gitinspector -x email:@gmail.com # filter out and exclude statistics from all authors with a gmail account
+```
 
 
 ## Mixing several filters together
 
 gitinspector lets you add multiple filtering rules by simply specifying the -x options several times or by separating each filtering rule with a comma;
 
-```gitinspector -x author:John -x email:@gmail.com```
+```bash
+gitinspector -x author:John -x email:@gmail.com
+```
 
 
-```gitinspector -x author:John,email:@gmail.com```
+```bash
+gitinspector -x author:John,email:@gmail.com
+```
 
 
 ## Using regular expressions
@@ -117,24 +134,34 @@ gitinspector lets you add multiple filtering rules by simply specifying the -x o
 Sometimes, sub-string matching (as described above) is simply not enough. Therefore, gitinspector let's you specify regular expressions as filtering rules. This makes filtering much more flexible. Here are some examples:
      
     
-```gitinspector -x "author:^(?!(John Smith))" # only show statistics from author "John Smith"```
+```bash
+gitinspector -x "author:^(?!(John Smith))" # only show statistics from author "John Smith"
+```
     
 
-```gitinspector -x "author:^(?!([A-C]))" # only show statistics from authors starting with the letters A/B/C```
+```bash
+gitinspector -x "author:^(?!([A-C]))" # only show statistics from authors starting with the letters A/B/C
+```
 
 
-```gitinspector -x "email:.com$" # filter out statistics from all email addresses ending with ".com"```
+```bash
+gitinspector -x "email:.com$" # filter out statistics from all email addresses ending with ".com"
+```
 
 
 Options in gitinspector can be set using git config. Consequently, it is possible to configure gitinspector behavior globally (in all git repositories) or locally (in a specific git repository). It also means that settings will be permanently stored. All the long options that can be given to gitinspector can also be configure via git config (and take the same arguments).
 
 To configure how gitinspector should behave in all git repositories, execute the following git command:
 
-    git config --global inspector.**option** **setting**
+```bash
+git config --global inspector.**option** **setting**
+```
 
 To configure how gitinspector should behave in a specific git repository, execute the following git command (with the current directory standing inside the repository in question):
 
-    git config inspector.**option** **setting**
+```bash
+git config inspector.**option** **setting**
+```
 
 If you want to run gitinspector under Windows, there are a few things to consider. Refer to the following page for more information:
 
